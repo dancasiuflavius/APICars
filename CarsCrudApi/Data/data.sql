@@ -1,0 +1,15 @@
+﻿insert into cars (id, price, name, category, date_of_fabrication) values (1, 220.25, 'Fiat', 'Hatchback', '2012-02-04');
+insert into cars (id, price, name, category, date_of_fabrication) values (2, 576.08, 'Cadillac', 'Convertible', '2010-09-17');
+insert into cars (id, price, name, category, date_of_fabrication) values (3, 630.78, 'Chrysler', 'Convertible', '2011-05-25');
+insert into cars (id, price, name, category, date_of_fabrication) values (4, 536.19, 'Infiniti', 'Truck', '2019-05-30');
+insert into cars (id, price, name, category, date_of_fabrication) values (5, 947.3, 'Fiat', 'Convertible', '2015-07-28');
+insert into cars (id, price, name, category, date_of_fabrication) values (6, 827.09, 'Lexus', 'Sedan', '2018-09-16');
+insert into cars (id, price, name, category, date_of_fabrication) values (7, 2.93, 'Hyundai', 'Convertible', '2021-01-10');
+insert into cars (id, price, name, category, date_of_fabrication) values (8, 143.21, 'Porsche', 'Convertible', '2010-12-28');
+insert into cars (id, price, name, category, date_of_fabrication) values (9, 56.11, 'BMW', 'Hatchback', '2019-06-19');
+insert into cars (id, price, name, category, date_of_fabrication) values (10, 260.67, 'Jeep', 'Truck', '2014-03-10');
+insert into cars (id, price, name, category, date_of_fabrication) values (11, 967.74, 'Dodge', 'Sedan', '2014-06-23');
+insert into cars (id, price, name, category, date_of_fabrication) values (12, 124.83, 'Jaguar', 'Hatchback', '2020-04-24');
+insert into cars (id, price, name, category, date_of_fabrication) values (13, 822.37, 'Volvo', 'SUV', '2011-12-12');
+insert into cars (id, price, name, category, date_of_fabrication) values (14, 249.04, 'Volkswagen', 'Sedan', '2017-12-20');
+insert into cars (id, price, name, category, date_of_fabrication) values (15, 392.71, 'Ram', 'Hatchback', '2011-10-07');

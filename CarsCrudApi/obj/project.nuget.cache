@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "G/37V98qR+2F3VyMQtaJp086AnE3PFt9HBFlejmMHysIpfg0YhzeaMNCueEVZJwtMn/WZCj7T0jR8qF4aTmZ8Q==",
+  "dgSpecHash": "8P6CRlh2NIkhO0VRnskr9XDxzwUEijuc6jlSVlamv4KP44z2TPGuozg8qS79G8ZWuHSN0Ygs0/uFDwoTWp5cpA==",
   "success": true,
-  "projectFilePath": "E:\\mycode\\asp.net\\initiere\\CarsCrudApi\\CarsCrudApi\\CarsCrudApi\\CarsCrudApi.csproj",
+  "projectFilePath": "E:\\mycode\\asp.net\\absolete\\CarsCrudApi\\CarsCrudApi\\CarsCrudApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\danca\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\danca\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

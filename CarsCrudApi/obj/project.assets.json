@@ -8242,11 +8242,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\mycode\\asp.net\\initiere\\CarsCrudApi\\CarsCrudApi\\CarsCrudApi\\CarsCrudApi.csproj",
+      "projectUniqueName": "E:\\mycode\\asp.net\\absolete\\CarsCrudApi\\CarsCrudApi\\CarsCrudApi.csproj",
       "projectName": "CarsCrudApi",
-      "projectPath": "E:\\mycode\\asp.net\\initiere\\CarsCrudApi\\CarsCrudApi\\CarsCrudApi\\CarsCrudApi.csproj",
+      "projectPath": "E:\\mycode\\asp.net\\absolete\\CarsCrudApi\\CarsCrudApi\\CarsCrudApi.csproj",
       "packagesPath": "C:\\Users\\danca\\.nuget\\packages\\",
-      "outputPath": "E:\\mycode\\asp.net\\initiere\\CarsCrudApi\\CarsCrudApi\\CarsCrudApi\\obj\\",
+      "outputPath": "E:\\mycode\\asp.net\\absolete\\CarsCrudApi\\CarsCrudApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -1,9 +1,13 @@
+using CarsCrudApi.Cars.Service.Interfaces;
+using CarsCrudApi.Cars.Service;
 using CarsCrudApi;
+using FluentMigrator.Runner;
 using Microsoft.EntityFrameworkCore;
 using CarsCrudApi.Data;
 using CarsCrudApi.Cars.Repository;
 using CarsCrudApi.Cars.Repository.Interfaces;
-using FluentMigrator.Runner;
+using CarsCrudApi.Cars.Service;
+using CarsCrudApi.Cars.Service.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,7 +18,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+
 builder.Services.AddScoped<ICarRepository, CarRepository>();
+
 
 
 
@@ -29,7 +35,11 @@ builder.Services.AddFluentMigratorCore()
         .ScanIn(typeof(Program).Assembly).For.Migrations())
     .AddLogging(lb => lb.AddFluentMigratorConsole());
 
+builder.Services.AddScoped<ICarRepository, CarRepository>();
 
+builder.Services.AddScoped<IProductQuerryService, ProductQueryService>();
+
+builder.Services.AddScoped<IProductComandService, ProductsCommandService>();
 
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
@@ -55,5 +65,3 @@ using (var scope = app.Services.CreateScope())
     runner.MigrateUp();
 }
 app.Run();
-
-

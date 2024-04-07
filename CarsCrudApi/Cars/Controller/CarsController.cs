@@ -1,56 +1,131 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CarsCrudApi.Cars.Service.Interfaces;
+using CarsCrudApi.System.Exceptions;
+using Microsoft.AspNetCore.Mvc;
+using CarsCrudApi.Cars.Controller.Interfaces;
 using CarsCrudApi.Cars.Dto;
 using CarsCrudApi.Cars.Model;
-using CarsCrudApi.Cars.Repository;
 using CarsCrudApi.Cars.Repository.Interfaces;
+using CarsCrudApi.Cars.Service;
+using CarsCrudApi.Cars.Service.Interfaces;
+using CarsCrudApi.System.Exceptions;
 
-namespace CarsCrudApi.Cars.Controller
+namespace CarsCrudApi.Cars.Controller;
+
+
+
+public class ProductsController : ProductApiController
 {
-    [ApiController]
-    [Route("Cars")]
 
-    public class CarsController : ControllerBase
+    private IProductQuerryService _productQueryService;
+    private IProductComandService _productCommandService;
+
+    private readonly ILogger<ProductsController> _logger;
+
+
+    public ProductsController(ILogger<ProductsController> logger, IProductQuerryService productQueryService, IProductComandService productCommandService)
     {
-        private readonly ILogger<CarsController> _logger;
+        _logger = logger;
+        _productQueryService = productQueryService;
+        _productCommandService = productCommandService;
+    }
 
-        private readonly ICarRepository _carRepository;
 
-        public CarsController(ILogger<CarsController> logger, ICarRepository carRepository)
+
+    [HttpGet("api/v1/all")]
+    public override async Task<ActionResult<IEnumerable<Car>>> GetProducts()
+    {
+        try
         {
-            _logger = logger;
-            _carRepository = carRepository;
-        }
-
-
-
-        [HttpGet("api/v1/all")]
-        public async Task<ActionResult<IEnumerable<Car>>> GetAll()
-        {
-
-            var products = await _carRepository.GetAllAsync();
+            var products = await _productQueryService.GetAllProducts();
             return Ok(products);
         }
-        [HttpGet("api/v1/getName/{name}")]
-        public async Task<ActionResult<Car>> GetName([FromRoute] string name)
+        catch (ItemsDoNotExist ex)
         {
-            var product = await _carRepository.GetByNameAsync(name);
+            return NotFound(ex.Message);
+        }
+
+
+    }
+
+
+    //[HttpGet("api/v1/getName/{name}")]
+    //public async Task<ActionResult<Product>> GetName([FromRoute] string name)
+    //{
+    //    var product = await _productRepository.GetByNameAsync(name);
+    //    return Ok(product);
+    //}
+    //[HttpGet("api/v1/getAllByPrice")]
+    //public async Task<ActionResult<Double>> GetAllAsyncPrice()
+    //{
+    //    var productPrices = await _productRepository.GetAllAsyncPrice();
+    //    return Ok(productPrices);
+    //}
+
+    //[HttpPost("api/v1/create")]
+
+    public override async Task<ActionResult<Car>> CreateProduct(CreateCarRequest productRequest)
+    {
+        _logger.LogInformation(message: $"Rest request: Create product with DTO:\n{productRequest}");
+        try
+        {
+            var product = await _productCommandService.CreateProduct(productRequest);
+
             return Ok(product);
         }
-        [HttpGet("api/v1/getAllByPrice")]
-        public async Task<ActionResult<Double>> GetAllAsyncPrice()
+        catch (InvalidPrice ex)
         {
-            var cars = await _carRepository.GetAllAsyncPrice();
-            return Ok(cars);
+            _logger.LogWarning(ex.Message);
+            return BadRequest(ex.Message);
         }
-        [HttpPost("api/v1/create")]
-
-        public async Task<ActionResult<Car>> CreateProduct([FromBody] CreateCarRequest createCarRequest)
+        catch (ItemAlreadyExists ex)
         {
-            var product = await _carRepository.CreateAsync(createCarRequest);
+            _logger.LogWarning(ex.Message);
+            return BadRequest(ex.Message);
+        }
 
+
+
+    }
+    // [HttpPut("api/v1/update")]
+    public override async Task<ActionResult<Car>> UpdateProduct([FromQuery] int id, [FromBody] UpdateCarRequest request)
+    {
+        _logger.LogInformation(message: $"Rest request: Create product with DTO:\n{request}");
+        try
+        {
+
+            Car response = await _productCommandService.UpdateProduct(id, request);
+
+            return Accepted(response);
+        }
+        catch (InvalidPrice ex)
+        {
+            _logger.LogWarning(ex.Message);
+            return BadRequest(ex.Message);
+        }
+        catch (ItemDoesNotExist ex)
+        {
+            _logger.LogWarning(ex.Message);
+            return NotFound(ex.Message);
+        }
+    }
+
+    //[HttpDelete("api/v1/delete")]
+    public override async Task<ActionResult<Car>> DeleteProduct([FromQuery] int id)
+    {
+        _logger.LogInformation(message: $"Rest request: Delete product with id:\n{id}");
+        try
+        {
+            Car product = await _productCommandService.DeleteProduct(id);
 
             return Ok(product);
-
+        }
+        catch (ItemDoesNotExist ex)
+        {
+            _logger.LogError(ex.Message + $"Error while trying to delete product: \n{id}");
+            return NotFound(ex.Message);
         }
     }
 }
+
+
+

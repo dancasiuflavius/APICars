@@ -36,18 +36,44 @@ namespace CarsCrudApi.Cars.Repository
             return await _context.Cars.Select(product => product.Price).ToListAsync();
         }
 
-        public async Task<Car> CreateAsync(CreateCarRequest carRequest)
+        
+        public async Task<Car> CreateAsync(CreateCarRequest productRequest)
         {
 
-            var car = _mapper.Map<Car>(carRequest);
+            var product = _mapper.Map<Car>(productRequest);
 
 
-            _context.Cars.Add(car);
+            _context.Cars.Add(product);
 
             await _context.SaveChangesAsync();
 
-            return car;
+            return product;
+        }
+        public async Task<Car> GetByIdAsync(int id)
+        {
+            return await _context.Cars.FindAsync(id);
+        }
+        public async Task<Car> UpdateAsync(int id, UpdateCarRequest request)
+        {
+            var product = await _context.Cars.FindAsync(id);
 
+            product.Name = request.Name ?? product.Name;
+            product.Price = request.Price ?? product.Price;
+            product.Category = request.Category ?? product.Category;
+            product.DateOfFabrication = request.DateOfFabrication ?? product.DateOfFabrication;
+
+            _context.Cars.Update(product);
+
+            await _context.SaveChangesAsync();
+
+            return product;
+        }
+        public async Task<Car> DeleteAsync(int id)
+        {
+            var product = await _context.Cars.FindAsync(id);
+            _context.Cars.Remove(product);
+            await _context.SaveChangesAsync();
+            return product;
         }
     }
 }

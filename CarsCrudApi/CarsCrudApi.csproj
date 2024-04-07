@@ -21,7 +21,6 @@
 
   <ItemGroup>
     <Folder Include="Cars\Exceptions\" />
-    <Folder Include="Cars\Service\" />
   </ItemGroup>
 
 </Project>

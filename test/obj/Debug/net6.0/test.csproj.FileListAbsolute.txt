@@ -1,0 +1,7 @@
+E:\mycode\asp.net\n-tier-apis\BookAPI\test\bin\Debug\net6.0\CoverletSourceRootsMapping_test
+E:\mycode\asp.net\n-tier-apis\BookAPI\test\obj\Debug\net6.0\test.csproj.AssemblyReference.cache
+E:\mycode\asp.net\n-tier-apis\BookAPI\test\obj\Debug\net6.0\MvcTestingAppManifest.json
+E:\mycode\asp.net\n-tier-apis\BookAPI\test\obj\Debug\net6.0\test.GeneratedMSBuildEditorConfig.editorconfig
+E:\mycode\asp.net\n-tier-apis\BookAPI\test\obj\Debug\net6.0\test.AssemblyInfoInputs.cache
+E:\mycode\asp.net\n-tier-apis\BookAPI\test\obj\Debug\net6.0\test.AssemblyInfo.cs
+E:\mycode\asp.net\n-tier-apis\BookAPI\test\obj\Debug\net6.0\test.csproj.CoreCompileInputs.cache

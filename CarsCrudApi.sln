@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34024.191
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarsCrudApi", "CarsCrudApi\CarsCrudApi.csproj", "{26207454-9917-461C-A72C-3D89689B8151}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarsCrudApi", "CarsCrudApi\CarsCrudApi.csproj", "{26207454-9917-461C-A72C-3D89689B8151}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tests", "tests\tests.csproj", "{91CEC322-0537-4E96-908F-14D33FC3FA95}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{26207454-9917-461C-A72C-3D89689B8151}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{26207454-9917-461C-A72C-3D89689B8151}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{26207454-9917-461C-A72C-3D89689B8151}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91CEC322-0537-4E96-908F-14D33FC3FA95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91CEC322-0537-4E96-908F-14D33FC3FA95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91CEC322-0537-4E96-908F-14D33FC3FA95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91CEC322-0537-4E96-908F-14D33FC3FA95}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
